@@ -21,4 +21,20 @@ class Podcast {
       _genres.add(result['genres'][i]);
     }
   }
+
+  int get collectionId => _collectionId;
+
+  String get collectionName => _collectionName;
+
+  String get feedUrl => _feedUrl;
+
+  String get artworkUrl60 => _artworkUrl60;
+
+  int get trackCount => _trackCount;
+
+  String get country => _country;
+
+  String get contentAdvisoryRating => _contentAdvisoryRating;
+
+  List<String> get genres => _genres;
 }

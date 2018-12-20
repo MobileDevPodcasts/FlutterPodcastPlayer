@@ -11,4 +11,8 @@ class PodcastListResponse {
       _podcasts.add(Podcast(parsedJson['results'][i]));
     }
   }
+
+  int get resultCount => _resultCount;
+
+  List<Podcast> get podcasts => _podcasts;
 }
