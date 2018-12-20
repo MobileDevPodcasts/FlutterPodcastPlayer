@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' show get;
-import 'package:podcast_player/network/ServerUrls.dart';
+import 'package:podcast_player/main/repository/network/ServerUrls.dart';
 
 //application widget
 class PodcastApp extends StatelessWidget {
