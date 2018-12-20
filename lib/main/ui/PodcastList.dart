@@ -4,6 +4,7 @@ import 'package:podcast_player/base/models/PodcastListReponse.dart';
 
 import '../blocks/PodcastsBloc.dart';
 
+//podcast list screen
 class PodcastList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -28,10 +29,8 @@ class PodcastList extends StatelessWidget {
   }
 
   Widget buildList(AsyncSnapshot<PodcastListResponse> snapshot) {
-    return GridView.builder(
+    return ListView.builder(
         itemCount: snapshot.data.podcasts.length,
-        gridDelegate:
-            new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (BuildContext context, int index) {
           return Text(snapshot.data.podcasts[index].collectionName);
         });

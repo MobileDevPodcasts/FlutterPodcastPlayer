@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' show get;
-import 'package:podcast_player/main/repository/network/ServerUrls.dart';
+import 'package:podcast_player/main/ui/PodcastList.dart';
 
 //application widget
 class PodcastApp extends StatelessWidget {
@@ -11,20 +10,7 @@ class PodcastApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Podcast Player"),
-        ),
-        floatingActionButton: FloatingActionButton(onPressed: () {
-          fetchData();
-        }),
-      ),
+      home: PodcastList(),
     );
-  }
-
-  void fetchData() {
-    get(getPodcastsUrl).then((response) {
-      print(response.body);
-    });
   }
 }
