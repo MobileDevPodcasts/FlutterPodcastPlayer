@@ -5,7 +5,16 @@ import 'package:podcast_player/base/models/PodcastListReponse.dart';
 import '../blocks/PodcastsBloc.dart';
 
 //podcast list screen
-class PodcastList extends StatelessWidget {
+class PodcastList extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return PodcastListState();
+  }
+}
+
+//podcast list screen state
+class PodcastListState extends State<PodcastList> {
+
   @override
   Widget build(BuildContext context) {
     podcastsBloc.fetchPodcasts();
@@ -26,6 +35,12 @@ class PodcastList extends StatelessWidget {
             );
           }),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    podcastsBloc.dispose();
   }
 
   Widget buildList(AsyncSnapshot<PodcastListResponse> snapshot) {
