@@ -7,12 +7,21 @@ class PodcastsBloc {
   final _podcastsRepository = PodcastsRepository();
   final _podcastsFetcher = PublishSubject<PodcastListResponse>();
 
+  String _searchQuery;
+
+  String get searchQuery => _searchQuery;
+
+  set searchQuery(String searchQuery) {
+    _searchQuery = searchQuery;
+    fetchPodcasts();
+  }
+
   Observable<PodcastListResponse> get podcastListResponse =>
       _podcastsFetcher.stream;
 
   fetchPodcasts() async {
     PodcastListResponse podcastListResponse =
-        await _podcastsRepository.fetchPodcasts();
+        await _podcastsRepository.fetchPodcasts(searchQuery);
     _podcastsFetcher.sink.add(podcastListResponse);
   }
 

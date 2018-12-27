@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:podcast_player/main/ui/PodcastList.dart';
+import 'package:podcast_player/main/ui/PodcastSearchScreen.dart';
 
 //application widget
 class PodcastApp extends StatelessWidget {
@@ -8,9 +8,9 @@ class PodcastApp extends StatelessWidget {
     return MaterialApp(
       title: 'Podcast Player',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.orange,
       ),
-      home: PodcastList(),
+      home: PodcastSearchScreen(),
     );
   }
 }

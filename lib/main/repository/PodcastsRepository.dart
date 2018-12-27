@@ -5,6 +5,7 @@ import 'package:podcast_player/main/repository/network/PodcastsApiProvider.dart'
 class PodcastsRepository {
   final podcastsApiProvider = PodcastsApiProvider();
 
-  Future<PodcastListResponse> fetchPodcasts() =>
-      podcastsApiProvider.fetchPodcasts();
+  //fetch podcasts matching [searchQuery] keyword
+  Future<PodcastListResponse> fetchPodcasts(String searchQuery) =>
+      podcastsApiProvider.fetchPodcasts(searchQuery);
 }

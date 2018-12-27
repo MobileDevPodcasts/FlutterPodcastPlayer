@@ -8,9 +8,9 @@ import 'package:podcast_player/main/repository/network/ServerUrls.dart';
 class PodcastsApiProvider {
   Client client = Client();
 
-  //fetch podcasts matching 'Android' keyword todo temporary hardcoded URL
-  Future<PodcastListResponse> fetchPodcasts() async {
-    final response = await client.get(getPodcastsUrl);
+  //fetch podcasts matching [searchQuery] keyword
+  Future<PodcastListResponse> fetchPodcasts(String searchQuery) async {
+    final response = await client.get(getPodcastsUrl(searchQuery));
     if (response.statusCode == 200) {
       return PodcastListResponse.fromJson(json.decode(response.body));
     } else {

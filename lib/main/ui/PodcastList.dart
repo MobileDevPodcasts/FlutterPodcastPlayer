@@ -14,27 +14,21 @@ class PodcastList extends StatefulWidget {
 
 //podcast list screen state
 class PodcastListState extends State<PodcastList> {
-
   @override
   Widget build(BuildContext context) {
     podcastsBloc.fetchPodcasts();
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Dev Podcast Player'),
-      ),
-      body: StreamBuilder(
-          stream: podcastsBloc.podcastListResponse,
-          builder: (context, AsyncSnapshot<PodcastListResponse> snapshot) {
-            if (snapshot.hasData) {
-              return buildList(snapshot);
-            } else if (snapshot.hasError) {
-              Text(snapshot.error.toString());
-            }
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }),
-    );
+    return StreamBuilder(
+        stream: podcastsBloc.podcastListResponse,
+        builder: (context, AsyncSnapshot<PodcastListResponse> snapshot) {
+          if (snapshot.hasData) {
+            return buildList(snapshot);
+          } else if (snapshot.hasError) {
+            Text(snapshot.error.toString());
+          }
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        });
   }
 
   @override
